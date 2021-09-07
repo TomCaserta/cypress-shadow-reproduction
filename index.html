@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cypress Visibility Repro</title>
+    </head>
+
+    <body>
+        <my-custom-element id='element'>Click me!</my-custom-element>
+        <script>
+            class MyCustomElement extends HTMLElement {
+                constructor() {
+                    super();
+
+                    this.attachShadow({ mode: 'open' });
+                    const button = document.createElement('button');
+                    const slot = document.createElement('slot');
+
+                    button.setAttribute('data-test-id', 'my-button')
+
+                    button.appendChild(slot);
+
+                    button.addEventListener('click', () => console.log('Clicked'));
+
+                    this.shadowRoot.appendChild(
+                        button
+                    );
+                }
+            }
+
+            console.log('Defining element');
+            customElements.define('my-custom-element', MyCustomElement);
+        </script>
+    </body>
+</html>

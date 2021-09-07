@@ -1,0 +1,15 @@
+{
+  "name": "cypress-shadow-reproduction",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./start.js",
+    "test": "cypress open"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^8.3.1"
+  }
+}
